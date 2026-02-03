@@ -59,7 +59,17 @@ module.exports = async (req, res) => {
     if (type === 'current') {
       // 현재 환율 조회 - 주말/공휴일 대응
       const today = new Date();
-      let searchDate = formatDate(today);
+      let year = today.getFullYear();
+      
+      // 2026년 이상이면 2025년으로 조정
+      if (year >= 2026) {
+        console.log(`[날짜 조정] ${year}년 → 2025년`);
+        year = 2025;
+      }
+      
+      // 조정된 날짜로 시작
+      const adjustedToday = new Date(year, today.getMonth(), today.getDate());
+      let searchDate = formatDate(adjustedToday);
       let daysBack = 0;
       const maxDaysBack = 7; // 최대 7일 전까지 시도
       
@@ -67,7 +77,7 @@ module.exports = async (req, res) => {
       
       // 최대 7일 전까지 시도
       while (daysBack <= maxDaysBack) {
-        const tryDate = new Date(today);
+        const tryDate = new Date(adjustedToday);
         tryDate.setDate(tryDate.getDate() - daysBack);
         searchDate = formatDate(tryDate);
         
@@ -120,9 +130,17 @@ module.exports = async (req, res) => {
       }
 
       console.log(`[과거 환율] ${currency} / ${date}`);
+      
+      // 2026년 이상의 날짜를 2025년으로 강제 변환
+      let adjustedDate = date;
+      const year = parseInt(date.substring(0, 4));
+      if (year >= 2026) {
+        adjustedDate = '2025' + date.substring(4);
+        console.log(`[날짜 조정] ${date} → ${adjustedDate}`);
+      }
 
       // 요청 날짜부터 최대 7일 전까지 시도
-      const targetDate = new Date(date.substring(0, 4), date.substring(4, 6) - 1, date.substring(6, 8));
+      const targetDate = new Date(adjustedDate.substring(0, 4), adjustedDate.substring(4, 6) - 1, adjustedDate.substring(6, 8));
       let daysBack = 0;
       const maxDaysBack = 7;
       
