@@ -1,0 +1,8 @@
+{
+  "name": "fxnow-vercel",
+  "version": "5.5.0",
+  "description": "환율을 손익으로 알려주는 환전 도우미 - Vercel 배포용",
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}

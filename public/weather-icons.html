@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fxnow 날씨 아이콘</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .icon-card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .icon-card h3 {
+      margin: 15px 0 5px 0;
+      color: #333;
+    }
+    .icon-card p {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+    }
+    svg {
+      width: 80px;
+      height: 80px;
+    }
+    h1 {
+      text-align: center;
+      color: #667eea;
+    }
+  </style>
+</head>
+<body>
+  <h1>fxnow 귀여운 날씨 아이콘</h1>
+  
+  <div class="icon-grid">
+    <!-- 매우 유리: 해맑게 웃는 해 -->
+    <div class="icon-card">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- 햇살 -->
+        <line x1="50" y1="10" x2="50" y2="20" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        <line x1="50" y1="80" x2="50" y2="90" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        <line x1="10" y1="50" x2="20" y2="50" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        <line x1="80" y1="50" x2="90" y2="50" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        <line x1="20" y1="20" x2="27" y2="27" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        <line x1="73" y1="73" x2="80" y2="80" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        <line x1="80" y1="20" x2="73" y2="27" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        <line x1="27" y1="73" x2="20" y2="80" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        
+        <!-- 해 얼굴 -->
+        <circle cx="50" cy="50" r="22" fill="#FFD93D"/>
+        
+        <!-- 하트 눈 왼쪽 (미간 조정) -->
+        <path d="M 36 43 C 36 40.5 37.5 39 39.5 39 C 41 39 42 40 42 41.5 C 42 40 43 39 44.5 39 C 46.5 39 48 40.5 48 43 C 48 46 42 50 42 50 C 42 50 36 46 36 43 Z" fill="#FF1493"/>
+        
+        <!-- 하트 눈 오른쪽 (미간 조정) -->
+        <path d="M 52 43 C 52 40.5 53.5 39 55.5 39 C 57 39 58 40 58 41.5 C 58 40 59 39 60.5 39 C 62.5 39 64 40.5 64 43 C 64 46 58 50 58 50 C 58 50 52 46 52 43 Z" fill="#FF1493"/>
+        
+        <!-- 활짝 웃는 입 -->
+        <path d="M 38 54 Q 50 67 62 54" fill="none" stroke="#8B4513" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 38 54 Q 50 65 62 54" fill="#D84A4A" opacity="0.4"/>
+        
+        <!-- 볼터치 -->
+        <circle cx="36" cy="53" r="4" fill="#FFB6C1" opacity="0.6"/>
+        <circle cx="64" cy="53" r="4" fill="#FFB6C1" opacity="0.6"/>
+      </svg>
+      <h3>매우 유리 💰</h3>
+      <p>+2% 이상</p>
+    </div>
+
+    <!-- 유리: 웃는 해 -->
+    <div class="icon-card">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- 햇살 (더 짧게) -->
+        <line x1="50" y1="15" x2="50" y2="23" stroke="#FFA500" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="50" y1="77" x2="50" y2="85" stroke="#FFA500" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="15" y1="50" x2="23" y2="50" stroke="#FFA500" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="77" y1="50" x2="85" y2="50" stroke="#FFA500" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="25" y1="25" x2="31" y2="31" stroke="#FFA500" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="69" y1="69" x2="75" y2="75" stroke="#FFA500" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="75" y1="25" x2="69" y2="31" stroke="#FFA500" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="31" y1="69" x2="25" y2="75" stroke="#FFA500" stroke-width="2.5" stroke-linecap="round"/>
+        
+        <!-- 해 얼굴 -->
+        <circle cx="50" cy="50" r="20" fill="#FFD93D"/>
+        
+        <!-- 웃는 눈 -->
+        <circle cx="43" cy="46" r="2.5" fill="#333"/>
+        <circle cx="57" cy="46" r="2.5" fill="#333"/>
+        
+        <!-- 미소 -->
+        <path d="M 42 54 Q 50 58 58 54" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+        
+        <!-- 볼터치 -->
+        <circle cx="38" cy="52" r="3" fill="#FFB6C1" opacity="0.4"/>
+        <circle cx="62" cy="52" r="3" fill="#FFB6C1" opacity="0.4"/>
+      </svg>
+      <h3>유리 ✨</h3>
+      <p>0~2%</p>
+    </div>
+
+    <!-- 평소: 온화한 미소 -->
+    <div class="icon-card">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- 햇살 (매우 유리/유리와 동일) -->
+        <line x1="50" y1="10" x2="50" y2="20" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        <line x1="50" y1="80" x2="50" y2="90" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        <line x1="10" y1="50" x2="20" y2="50" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        <line x1="80" y1="50" x2="90" y2="50" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        <line x1="20" y1="20" x2="27" y2="27" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        <line x1="73" y1="73" x2="80" y2="80" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        <line x1="80" y1="20" x2="73" y2="27" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        <line x1="27" y1="73" x2="20" y2="80" stroke="#FFB347" stroke-width="3" stroke-linecap="round"/>
+        
+        <!-- 해 얼굴 -->
+        <circle cx="50" cy="50" r="22" fill="#FFD93D"/>
+        
+        <!-- 온화한 눈 -->
+        <path d="M 41 46 Q 43 48 45 46" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 55 46 Q 57 48 59 46" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+        
+        <!-- 부드러운 미소 -->
+        <path d="M 43 55 Q 50 57 57 55" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round"/>
+        
+        <!-- 볼터치 -->
+        <circle cx="39" cy="52" r="2.5" fill="#FFB6C1" opacity="0.3"/>
+        <circle cx="61" cy="52" r="2.5" fill="#FFB6C1" opacity="0.3"/>
+      </svg>
+      <h3>평소 수준 😊</h3>
+      <p>±1%</p>
+    </div>
+
+    <!-- 불리: 귀여운 구름 -->
+    <div class="icon-card">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- 구름 -->
+        <ellipse cx="35" cy="55" rx="15" ry="12" fill="#C4C4C4"/>
+        <ellipse cx="50" cy="50" rx="18" ry="15" fill="#D3D3D3"/>
+        <ellipse cx="65" cy="55" rx="15" ry="12" fill="#C4C4C4"/>
+        <rect x="25" y="52" width="50" height="15" fill="#D3D3D3"/>
+        
+        <!-- 얼굴 -->
+        <circle cx="45" cy="55" r="2" fill="#666"/>
+        <circle cx="55" cy="55" r="2" fill="#666"/>
+        
+        <!-- 살짝 아쉬운 표정 -->
+        <path d="M 43 62 Q 50 60 57 62" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <h3>불리 ☁️</h3>
+      <p>0~-2%</p>
+    </div>
+
+    <!-- 매우 불리: 우산 -->
+    <div class="icon-card">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- 우산 -->
+        <path d="M 30 55 Q 30 35 50 35 Q 70 35 70 55" fill="none" stroke="#667eea" stroke-width="3" stroke-linecap="round"/>
+        <path d="M 30 55 Q 30 40 50 35 Q 70 40 70 55" fill="#8B9FEE" opacity="0.3"/>
+        
+        <!-- 우산 손잡이 -->
+        <line x1="50" y1="35" x2="50" y2="70" stroke="#667eea" stroke-width="2.5"/>
+        <path d="M 50 70 Q 53 73 56 70" fill="none" stroke="#667eea" stroke-width="2.5" stroke-linecap="round"/>
+        
+        <!-- 빗방울 -->
+        <ellipse cx="35" cy="65" rx="2" ry="4" fill="#89CFF0" opacity="0.6"/>
+        <ellipse cx="45" cy="68" rx="2" ry="4" fill="#89CFF0" opacity="0.6"/>
+        <ellipse cx="55" cy="68" rx="2" ry="4" fill="#89CFF0" opacity="0.6"/>
+        <ellipse cx="65" cy="65" rx="2" ry="4" fill="#89CFF0" opacity="0.6"/>
+        
+        <!-- 작은 구름 -->
+        <ellipse cx="40" cy="32" rx="8" ry="6" fill="#D3D3D3" opacity="0.7"/>
+        <ellipse cx="60" cy="32" rx="8" ry="6" fill="#D3D3D3" opacity="0.7"/>
+      </svg>
+      <h3>매우 불리 ☔</h3>
+      <p>-2% 이하</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 50px; padding: 20px; background: white; border-radius: 12px;">
+    <h2>코드 통합 방법</h2>
+    <p>각 SVG를 data URI로 변환하여 JavaScript에서 사용하거나, SVG 파일로 저장하여 사용할 수 있습니다.</p>
+    <p>아래 파일들을 확인하세요:</p>
+    <ul>
+      <li><code>weather-icons-inline.js</code> - JavaScript에서 바로 사용 가능한 SVG 문자열</li>
+      <li>개별 SVG 파일 (icons 폴더)</li>
+    </ul>
+  </div>
+</body>
+</html>
