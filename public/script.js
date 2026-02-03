@@ -320,6 +320,11 @@ async function fetchHistoricalRate(currency, daysAgo) {
       }
 
       const result = await response.json();
+      
+      // 디버그 정보 출력
+      if (result.debug) {
+        console.log(`[DEBUG] ${currency} ${daysAgo}일 전 시도:`, result.debug);
+      }
 
       if (result.rate) {
         if (offset > 0) {

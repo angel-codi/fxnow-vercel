@@ -126,6 +126,12 @@ module.exports = async (req, res) => {
       let daysBack = 0;
       const maxDaysBack = 7;
       
+      const debugInfo = {
+        requestedCurrency: currency,
+        requestedDate: date,
+        attempts: []
+      };
+      
       while (daysBack <= maxDaysBack) {
         const tryDate = new Date(targetDate);
         tryDate.setDate(tryDate.getDate() - daysBack);
@@ -137,16 +143,23 @@ module.exports = async (req, res) => {
           const response = await fetch(`${EXIM_BASE_URL}?authkey=${EXIM_API_KEY}&searchdate=${searchDate}&data=AP01`);
           const data = await response.json();
 
-          // 상세 로깅
-          console.log(`[DEBUG] ${searchDate} API 응답 타입:`, typeof data);
-          console.log(`[DEBUG] ${searchDate} Array 여부:`, Array.isArray(data));
-          console.log(`[DEBUG] ${searchDate} 데이터 길이:`, data?.length);
-          
+          const attemptInfo = {
+            searchDate,
+            daysBack,
+            isArray: Array.isArray(data),
+            dataLength: data?.length,
+            dataType: typeof data
+          };
+
           if (data && Array.isArray(data) && data.length > 0) {
             const rates = parseExchangeRates(data);
             
-            console.log(`[DEBUG] ${searchDate} 파싱된 rates:`, Object.keys(rates || {}));
-            console.log(`[DEBUG] ${searchDate} 찾는 통화: ${currency}, 존재: ${!!rates?.[currency]}`);
+            attemptInfo.ratesCount = Object.keys(rates || {}).length;
+            attemptInfo.availableCurrencies = Object.keys(rates || {}).slice(0, 10);
+            attemptInfo.hasCurrency = !!rates?.[currency];
+            attemptInfo.actualCurrencyValue = rates?.[currency];
+            
+            debugInfo.attempts.push(attemptInfo);
             
             if (rates && rates[currency]) {
               console.log(`✅ ${currency} ${searchDate}: ${rates[currency]}`);
@@ -158,16 +171,21 @@ module.exports = async (req, res) => {
                 rate: rates[currency],
                 date: searchDate,
                 requestedDate: date,
-                daysBack: daysBack
+                daysBack: daysBack,
+                debug: debugInfo
               });
-            } else {
-              console.log(`[DEBUG] ${searchDate} rates에서 ${currency} 못찾음`);
             }
           } else {
-            console.log(`[DEBUG] ${searchDate} 데이터 형식 문제 - data:`, JSON.stringify(data).substring(0, 200));
+            attemptInfo.error = "Not an array or empty";
+            debugInfo.attempts.push(attemptInfo);
           }
         } catch (error) {
           console.log(`❌ ${searchDate} 환율 조회 실패:`, error.message);
+          debugInfo.attempts.push({
+            searchDate,
+            daysBack,
+            error: error.message
+          });
         }
         
         daysBack++;
@@ -178,7 +196,8 @@ module.exports = async (req, res) => {
       return res.json({ 
         success: false,
         error: '해당 날짜의 환율 데이터가 없습니다',
-        message: '최근 7일간 영업일 데이터를 찾을 수 없습니다'
+        message: '최근 7일간 영업일 데이터를 찾을 수 없습니다',
+        debug: debugInfo
       });
 
     } else {
